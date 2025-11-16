@@ -1,9 +1,4 @@
-################################################################################
-# Financial Inclusion and Emergency Response
-# Updated: October 23, 2025
-################################################################################
-
-## Load libraries
+## libraries
 library(sampleSelection)
 library(dplyr)
 library(modelsummary)
@@ -16,15 +11,17 @@ library(performance)
 library(ggeffects)
 library(AER)
 library(margins)
+library(here)
 
 ################################################################################
 # PART I: Data
 ################################################################################
 
 #Dataset
-
-setwd("C:/Users/Lenovo PC/OneDrive/1 - Thesis/20250509_Data Analyzing_MAIN/MAIN 01 - Dataset and R")
-df <- read_excel("20250509_Financial Inclusion_3 countries.xlsx", sheet = "3 countries") %>%
+df <- read_excel(
+  here("data", "20250509_Financial Inclusion_3 countries.xlsx"),
+  sheet = "3 countries"
+) %>%
   clean_names()
 
 # Variables
@@ -575,3 +572,4 @@ df_sources_2 <- df_sources %>%
       TRUE ~ NA_character_
     )
   )
+
